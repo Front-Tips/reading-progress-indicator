@@ -1,0 +1,35 @@
+@import "./reset.css";
+
+.content {
+  --indicator-height: 10px;
+  --indicator-color: #f600ff;
+
+  width: 100vw;
+  padding: 2rem 5rem;
+  box-sizing: border-box;
+}
+
+.content::before {
+  content: "";
+  position: fixed;
+  height: var(--indicator-height);
+  inset: 0;
+  background: var(--indicator-color);
+
+  animation: scale 3s linear;
+  animation-timeline: scroll(root);
+  transform-origin: 0 50%;
+}
+
+/* ------------------------ */
+/*      Scale Animation     */
+/* ------------------------ */
+@keyframes scale {
+  0% {
+    transform: scaleX(0);
+  }
+  90%,
+  100% {
+    transform: scaleX(1);
+  }
+}
